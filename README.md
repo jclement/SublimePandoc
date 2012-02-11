@@ -18,15 +18,14 @@ You'll need to download and install [Pandoc] and have it in your PATH.
 
 **pandoc_render** will render the markdown to HTML or DOCx and takes the following optional arguments:
 
-writeBeside
-  ~ When set will output the rendered result in the same folder, and with the same name as the source file.  This requires that the buffer has already been saved and has a filename.  Defaults to FALSE.
-openAfter
-  ~ When set will open the resulting document after rendering it.  Defaults to FALSE.
-target
-  ~ Can be either 'html' or 'docx'.  Defaults to 'html'.
+*	**writeBeside** - When set will output the rendered result in the same folder, and with the same name as the source file.  This requires that the buffer has already been saved and has a filename.  Defaults to FALSE.
+*	**openAfter** - When set will open the resulting document after rendering it.  Defaults to FALSE.
+*	**target** - Can be either 'html' or 'docx'.  Defaults to 'html'.
 
 
 ## Templates ##
+
+TBD
 
 ## Sample Keybindings ##
 ~~~~~ {#mycode .python .numberLines startFrom="100"}

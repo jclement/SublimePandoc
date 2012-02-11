@@ -45,16 +45,21 @@ table.sourceCode {border: 1px solid #ccc;}
 </head>
 <body>
 <h1 id="pandoc-plugin-for-sublime-text-2">Pandoc Plugin for Sublime Text 2</h1>
-<p>A Sublime Text 2 plugin for calling the Pandoc Markdown renderer to create HTML and DocX output.</p>
+<p>A <a href="http://www.sublimetext.com/2">Sublime Text 2</a> plugin for calling the Pandoc Markdown renderer to create HTML and DocX output.</p>
 <h2 id="installation">Installation</h2>
 <p>The easiest way is to run the following from your Sublime Text 2 Packages folder.</p>
 <pre class="sh" id="mycode"><code>$ git clone git://github.com/jclement/SublimePandoc.git</code></pre>
 <h2 id="dependencies">Dependencies</h2>
 <p>You'll need to download and install <a href="http://johnmacfarlane.net/pandoc/">Pandoc</a> and have it in your PATH.</p>
 <h2 id="available-commands">Available Commands</h2>
-<p><strong>pandoc_render</strong> will render the markdown to HTML. If argument &quot;openInBrowser&quot; is set to true it will open the rendered document as soon as it's done. If &quot;writeBeside&quot; is true the HTML is output in the same folder as the markdown source file but with a .html extension.</p>
-<p><strong>pandoc_render_docx</strong> will render the markdown to a DOCX file in the same folder as the markdown source file.</p>
+<p><strong>pandoc_render</strong> will render the markdown to HTML or DOCx and takes the following optional arguments:</p>
+<ul>
+<li><strong>writeBeside</strong> - When set will output the rendered result in the same folder, and with the same name as the source file. This requires that the buffer has already been saved and has a filename. Defaults to FALSE.</li>
+<li><strong>openAfter</strong> - When set will open the resulting document after rendering it. Defaults to FALSE.</li>
+<li><strong>target</strong> - Can be either 'html' or 'docx'. Defaults to 'html'.</li>
+</ul>
 <h2 id="templates">Templates</h2>
+<p>TBD</p>
 <h2 id="sample-keybindings">Sample Keybindings</h2>
 <table class="sourceCode python numberLines" id="mycode" startFrom="100"><tr class="sourceCode"><td class="lineNumbers"><pre>100
 101
@@ -62,9 +67,9 @@ table.sourceCode {border: 1px solid #ccc;}
 103
 104
 </pre></td><td class="sourceCode"><pre><code class="sourceCode python">[
-    {<span class="st">&quot;keys&quot;</span>: [<span class="st">&quot;ctrl+alt+r&quot;</span>], <span class="st">&quot;command&quot;</span>:<span class="st">&quot;pandoc_render&quot;</span>, <span class="st">&quot;args&quot;</span>:{<span class="st">&quot;openInBrowser&quot;</span>:true}},
-    {<span class="st">&quot;keys&quot;</span>: [<span class="st">&quot;ctrl+alt+shift+d&quot;</span>], <span class="st">&quot;command&quot;</span>:<span class="st">&quot;pandoc_render_docx&quot;</span>},
-    {<span class="st">&quot;keys&quot;</span>: [<span class="st">&quot;ctrl+alt+shift+r&quot;</span>], <span class="st">&quot;command&quot;</span>:<span class="st">&quot;pandoc_render&quot;</span>, <span class="st">&quot;args&quot;</span>:{<span class="st">&quot;openInBrowser&quot;</span>:false, <span class="st">&quot;writeBeside&quot;</span>:true}}
+    {<span class="st">&quot;keys&quot;</span>: [<span class="st">&quot;ctrl+alt+r&quot;</span>],        <span class="st">&quot;command&quot;</span>:<span class="st">&quot;pandoc_render&quot;</span>, <span class="st">&quot;args&quot;</span>:{<span class="st">&quot;openAfter&quot;</span>:true,    <span class="st">&quot;target&quot;</span>:<span class="st">&quot;html&quot;</span>,    <span class="st">&quot;writeBeside&quot;</span>:false}},
+    {<span class="st">&quot;keys&quot;</span>: [<span class="st">&quot;ctrl+alt+shift+d&quot;</span>],  <span class="st">&quot;command&quot;</span>:<span class="st">&quot;pandoc_render&quot;</span>, <span class="st">&quot;args&quot;</span>:{<span class="st">&quot;openAfter&quot;</span>:false,   <span class="st">&quot;target&quot;</span>:<span class="st">&quot;docx&quot;</span>,    <span class="st">&quot;writeBeside&quot;</span>:true}},
+    {<span class="st">&quot;keys&quot;</span>: [<span class="st">&quot;ctrl+alt+shift+r&quot;</span>],  <span class="st">&quot;command&quot;</span>:<span class="st">&quot;pandoc_render&quot;</span>, <span class="st">&quot;args&quot;</span>:{<span class="st">&quot;openAfter&quot;</span>:false,   <span class="st">&quot;target&quot;</span>:<span class="st">&quot;html&quot;</span>,    <span class="st">&quot;writeBeside&quot;</span>:true}}
 ]</code></pre></td></tr></table>
 </body>
 </html>
