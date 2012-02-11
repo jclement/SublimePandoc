@@ -24,3 +24,4 @@ You'll need to download and install [Pandoc] and have it in your PATH.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 [Pandoc]: http://johnmacfarlane.net/pandoc/
+[SublimeText2]: http://www.sublimetext.com/2
