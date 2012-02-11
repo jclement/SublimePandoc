@@ -2,6 +2,14 @@
 
 A Sublime Text 2 plugin for calling the Pandoc Markdown renderer to create HTML and DocX output.
 
+## Installation ##
+
+The easiest way is to run the following from your Sublime Text 2 Packages folder.
+
+~~~~~~~~~~~~~ {#mycode .sh}
+$ git clone git://github.com/jclement/SublimePandoc.git
+~~~~~~~~~~~~~~~~~~~~~~
+
 ## Dependencies ##
 
 You'll need to download and install [Pandoc] and have it in your PATH.
