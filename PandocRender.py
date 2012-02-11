@@ -55,26 +55,9 @@ class PandocRenderCommand(sublime_plugin.TextCommand):
             cmd.append("--toc")
         if '[[NUM]]' in contents:
             cmd.append("-N")
-        """
-        cmd = 'pandoc -t %s --standalone --template="%s" --reference-docx="%s" "%s" -o "%s"' % (
-            {'html':'html5', 'docx':'docx'}[target],
-            self.getTemplatePath("template.html"),
-            self.getTemplatePath("reference.docx"),
-            tmp_md.name,           
-            output_filename)
-        call(['notepad'])
-            
-        if '[[TOC]]' in contents:
-            cmd += " --toc"
-        if '[[NUM]]' in contents:
-            cmd += " -N"
 
-
-        os.system(cmd)
-        """
         print subprocess.call(cmd)
         print "Wrote:", output_filename
 
         if openAfter:
-            print "Opening"
             webbrowser.open_new_tab(output_filename)
