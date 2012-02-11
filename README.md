@@ -1,5 +1,4 @@
-% Pandoc Plugin for Sublime Text 2
-% Jeff Clement
+# Pandoc Plugin for Sublime Text 2 #
 
 A Sublime Text 2 plugin for calling the Pandoc Markdown renderer to create HTML and DocX output.
 
