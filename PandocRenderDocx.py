@@ -4,19 +4,17 @@ import tempfile
 import os
 
 
-class MarkdownRenderCommand(sublime_plugin.TextCommand):
+class PandocRenderDocxCommand(sublime_plugin.TextCommand):
     """ render file contents to HTML and, optionally, open in your web browser"""
 
     def getTemplatePath(self):
-        filename = 'template.html'
-        # path via package manager
-        path = os.path.join(sublime.packages_path(), 'JSC.Markdown', filename)
+        filename = 'reference.docx'
+        path = os.path.join(sublime.packages_path(), 'SublimePandoc', filename)
         if not os.path.isfile(path):
             raise Exception(filename + " file not found!")
         return path
 
-    def run(self, edit, openInBrowser=True, writeBeside=False):
-        print edit, openInBrowser, self.getTemplatePath()
+    def run(self, edit):
         region = sublime.Region(0, self.view.size())
         encoding = self.view.encoding()
         if encoding == 'Undefined':
@@ -29,14 +27,9 @@ class MarkdownRenderCommand(sublime_plugin.TextCommand):
         tmp_md.write(contents)
         tmp_md.close()
 
-        if writeBeside:
-            output_filename = os.path.splitext(self.view.file_name())[0]+".html"
-        else:
-            tmp_html = tempfile.NamedTemporaryFile(delete=False, suffix=".html")
-            tmp_html.close()
-            output_filename=tmp_html.name
+        output_filename = os.path.splitext(self.view.file_name())[0]+".docx"
 
-        cmd = 'pandoc -t html5 --standalone --template="%s" "%s" -o "%s"' % (
+        cmd = 'pandoc -t docx --reference-docx="%s" "%s" -o "%s"' % (
             self.getTemplatePath(),
             tmp_md.name,           
             output_filename)
@@ -46,6 +39,3 @@ class MarkdownRenderCommand(sublime_plugin.TextCommand):
             cmd += " -N"
 
         os.system(cmd)
-
-        if openInBrowser:
-            webbrowser.open_new_tab(tmp_html.name)

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+<style>
+@media print {.noPrint {display:none;}}
+a, a:visited {color: #004;}
+body {font-family: helvetica; font-size: 9pt;}
+header {background: #004; color: #fff; border-bottom: 1px solid #000; padding: 3px;}
+header .title {margin-top: 0px; margin-bottom: 0px; border-bottom: none; font-size: 12pt; color: #fff;}
+header .author {margin-top: 0px; margin-bottom: 0px; font-size: 8pt; color: #ddd}
+header .date {margin-top: 0px; margin-bottom: 0px; font-size: 8pt; color: #ddd} 
+h1 {border-bottom: 1px solid #ccc; font-size: 14pt; color: #000;}
+h1 a {color: #000; text-decoration: none;}
+h2, h2 a {font-size: 12pt; color: #000; text-decoration: none;}
+h3, h3 a {font-size: 10pt; color: #000; text-decoration: none;}
+header h2 a {font-size: 10pt; color: #fff;}
+header h3 a {font-size: 10pt; color: #fff;}
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+td.lineNumbers { width: 50px; }
+table.sourceCode {border: 1px solid #ccc;}
+.header-section-number {color: #aac;}
+</style>
+</head>
+<body>
+<h1 id="pandoc-plugin-for-sublime-text-2">Pandoc Plugin for Sublime Text 2</h1>
+<p>A Sublime Text 2 plugin for calling the Pandoc Markdown renderer to create HTML and DocX output.</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>You'll need to download and install <a href="http://johnmacfarlane.net/pandoc/">Pandoc</a> and have it in your PATH.</p>
+<h2 id="sample-keybindings">Sample Keybindings</h2>
+<table class="sourceCode python numberLines" id="mycode" startFrom="100"><tr class="sourceCode"><td class="lineNumbers"><pre>100
+101
+102
+103
+104
+</pre></td><td class="sourceCode"><pre><code class="sourceCode python">[
+    {<span class="st">&quot;keys&quot;</span>: [<span class="st">&quot;ctrl+alt+r&quot;</span>], <span class="st">&quot;command&quot;</span>:<span class="st">&quot;pandoc_render&quot;</span>, <span class="st">&quot;args&quot;</span>:{<span class="st">&quot;openInBrowser&quot;</span>:true}},
+    {<span class="st">&quot;keys&quot;</span>: [<span class="st">&quot;ctrl+alt+shift+d&quot;</span>], <span class="st">&quot;command&quot;</span>:<span class="st">&quot;pandoc_render_docx&quot;</span>},
+    {<span class="st">&quot;keys&quot;</span>: [<span class="st">&quot;ctrl+alt+shift+r&quot;</span>], <span class="st">&quot;command&quot;</span>:<span class="st">&quot;pandoc_render&quot;</span>, <span class="st">&quot;args&quot;</span>:{<span class="st">&quot;openInBrowser&quot;</span>:false, <span class="st">&quot;writeBeside&quot;</span>:true}}
+]</code></pre></td></tr></table>
+</body>
+</html>
