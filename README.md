@@ -31,6 +31,9 @@ TBD
 Note:  If you are using a pre-built binary of Pandoc you will be unable to customize the reference.docx file in versions <= 1.9.1
 
 ## Sample Keybindings ##
+
+The default keymapping...
+
 ~~~~~ {#mycode .python .numberLines startFrom="100"}
 [
   { "keys": ["ctrl+alt+r"],     
