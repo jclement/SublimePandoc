@@ -4,7 +4,9 @@ A [Sublime Text 2](http://www.sublimetext.com/2) plugin for calling the Pandoc M
 
 ## Installation ##
 
-The easiest way is to run the following from your Sublime Text 2 Packages folder.
+The easiest way is to install "SublimePandoc" using [Package Control](http://wbond.net/sublime_packages/package_control).
+
+You can also grab the latest from Github and install it into your Sublime Text 2 Packages folder.
 
 ~~~~~~~~~~~~~ {#mycode .sh}
 $ git clone git://github.com/jclement/SublimePandoc.git
@@ -26,7 +28,7 @@ Menu items for common tasks should show up under Tools > Pandoc.
 
 ## Templates ##
 
-TBD
+"template.html" controls the output of the HTML documents and "reference.docx" is used for style definitions for DOCX output. 
 
 Note:  If you are using a pre-built binary of Pandoc you will be unable to customize the reference.docx file in versions <= 1.9.1
 
