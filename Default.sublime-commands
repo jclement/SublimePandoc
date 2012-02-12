@@ -12,6 +12,6 @@
     {
         "caption": "Pandoc: Render Markdown DocX",
         "command": "pandoc_render",
-        "args":{"openAfter":true,   "target":"docx",    "writeBeside":true}
+        "args":{"openAfter":false,   "target":"docx",    "writeBeside":true}
     }
 ]

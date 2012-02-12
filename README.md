@@ -22,6 +22,7 @@ You'll need to download and install [Pandoc] and have it in your PATH.
 *	**openAfter** - When set will open the resulting document after rendering it.  Defaults to FALSE.
 *	**target** - Can be either 'html' or 'docx'.  Defaults to 'html'.
 
+Menu items for common tasks should show up under Tools > Pandoc.
 
 ## Templates ##
 

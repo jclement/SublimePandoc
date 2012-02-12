@@ -14,6 +14,13 @@ class PandocRenderCommand(sublime_plugin.TextCommand):
             raise Exception(filename + " file not found!")
         return path
 
+    def is_enabled(self):
+        # TODO: Only if text.html.markdown
+        return True
+
+    def is_visible(self):
+        return True 
+
     def run(self, edit, target="html", openAfter=True, writeBeside=False):
         if not target in ["html","docx"]: raise Exception("target must be either 'html' or 'docx'")
 
@@ -51,6 +58,8 @@ class PandocRenderCommand(sublime_plugin.TextCommand):
         cmd.append(tmp_md.name)
         cmd.append("-o")
         cmd.append(output_filename)
+
+        # Hints that can be embedded in the documents to turn on features in the output.
         if '[[TOC]]' in contents:
             cmd.append("--toc")
         if '[[NUM]]' in contents:
@@ -60,4 +69,13 @@ class PandocRenderCommand(sublime_plugin.TextCommand):
         print "Wrote:", output_filename
 
         if openAfter:
-            webbrowser.open_new_tab(output_filename)
+            if target == "html":
+                webbrowser.open_new_tab(output_filename)
+            # perhaps there is a better way of handling the DocX opening...?
+            elif target == "docx" and sys.platform == "win32":
+                os.startfile(output_filename)
+            elif target == "docx" and sys.platform == "mac":
+                subprocess.call(["open", output_filename])
+            elif target == "docx" and sys.platform == "posix":
+                subprocess.call(["xdg-open", output_filename])
+

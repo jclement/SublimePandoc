@@ -11,16 +11,16 @@
 @media print {.noPrint {display:none;}}
 a, a:visited {color: #004;}
 body {font-family: helvetica; font-size: 9pt;}
-header {background: #004; color: #fff; border-bottom: 1px solid #000; padding: 3px;}
-header .title {margin-top: 0px; margin-bottom: 0px; border-bottom: none; font-size: 12pt; color: #fff;}
-header .author {margin-top: 0px; margin-bottom: 0px; font-size: 8pt; color: #ddd}
-header .date {margin-top: 0px; margin-bottom: 0px; font-size: 8pt; color: #ddd} 
+header {border-bottom: 1px solid #000; padding: 3px;}
+header .title {margin-top: 0px; margin-bottom: 0px; border-bottom: none; font-size: 12pt;}
+header .author {margin-top: 0px; margin-bottom: 0px; font-size: 8pt; color: #666}
+header .date {margin-top: 0px; margin-bottom: 0px; font-size: 8pt; color: #666} 
 h1 {border-bottom: 1px solid #ccc; font-size: 14pt; color: #000;}
 h1 a {color: #000; text-decoration: none;}
 h2, h2 a {font-size: 12pt; color: #000; text-decoration: none;}
 h3, h3 a {font-size: 10pt; color: #000; text-decoration: none;}
-header h2 a {font-size: 10pt; color: #fff;}
-header h3 a {font-size: 10pt; color: #fff;}
+header h2 a {font-size: 10pt;}
+header h3 a {font-size: 10pt;}
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
 table.sourceCode { width: 100%; }
@@ -58,18 +58,42 @@ table.sourceCode {border: 1px solid #ccc;}
 <li><strong>openAfter</strong> - When set will open the resulting document after rendering it. Defaults to FALSE.</li>
 <li><strong>target</strong> - Can be either 'html' or 'docx'. Defaults to 'html'.</li>
 </ul>
+<p>Menu items for common tasks should show up under Tools &gt; Pandoc.</p>
 <h2 id="templates">Templates</h2>
 <p>TBD</p>
+<p>Note: If you are using a pre-built binary of Pandoc you will be unable to customize the reference.docx file in versions &lt;= 1.9.1</p>
 <h2 id="sample-keybindings">Sample Keybindings</h2>
 <table class="sourceCode python numberLines" id="mycode" startFrom="100"><tr class="sourceCode"><td class="lineNumbers"><pre>100
 101
 102
 103
 104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
 </pre></td><td class="sourceCode"><pre><code class="sourceCode python">[
-    {<span class="st">&quot;keys&quot;</span>: [<span class="st">&quot;ctrl+alt+r&quot;</span>],        <span class="st">&quot;command&quot;</span>:<span class="st">&quot;pandoc_render&quot;</span>, <span class="st">&quot;args&quot;</span>:{<span class="st">&quot;openAfter&quot;</span>:true,    <span class="st">&quot;target&quot;</span>:<span class="st">&quot;html&quot;</span>,    <span class="st">&quot;writeBeside&quot;</span>:false}},
-    {<span class="st">&quot;keys&quot;</span>: [<span class="st">&quot;ctrl+alt+shift+d&quot;</span>],  <span class="st">&quot;command&quot;</span>:<span class="st">&quot;pandoc_render&quot;</span>, <span class="st">&quot;args&quot;</span>:{<span class="st">&quot;openAfter&quot;</span>:false,   <span class="st">&quot;target&quot;</span>:<span class="st">&quot;docx&quot;</span>,    <span class="st">&quot;writeBeside&quot;</span>:true}},
-    {<span class="st">&quot;keys&quot;</span>: [<span class="st">&quot;ctrl+alt+shift+r&quot;</span>],  <span class="st">&quot;command&quot;</span>:<span class="st">&quot;pandoc_render&quot;</span>, <span class="st">&quot;args&quot;</span>:{<span class="st">&quot;openAfter&quot;</span>:false,   <span class="st">&quot;target&quot;</span>:<span class="st">&quot;html&quot;</span>,    <span class="st">&quot;writeBeside&quot;</span>:true}}
+  { <span class="st">&quot;keys&quot;</span>: [<span class="st">&quot;ctrl+alt+r&quot;</span>],     
+    <span class="st">&quot;command&quot;</span>:<span class="st">&quot;pandoc_render&quot;</span>, 
+    <span class="st">&quot;args&quot;</span>:{<span class="st">&quot;openAfter&quot;</span>:true,   <span class="st">&quot;target&quot;</span>:<span class="st">&quot;html&quot;</span>,  <span class="st">&quot;writeBeside&quot;</span>:false},
+    <span class="st">&quot;context&quot;</span>:[{<span class="st">&quot;key&quot;</span>: <span class="st">&quot;selector&quot;</span>, <span class="st">&quot;operator&quot;</span>: <span class="st">&quot;equal&quot;</span>, <span class="st">&quot;operand&quot;</span>: <span class="st">&quot;text.html.markdown&quot;</span> }]},
+
+  { <span class="st">&quot;keys&quot;</span>: [<span class="st">&quot;ctrl+alt+shift+d&quot;</span>],   
+    <span class="st">&quot;command&quot;</span>:<span class="st">&quot;pandoc_render&quot;</span>, 
+    <span class="st">&quot;args&quot;</span>:{<span class="st">&quot;openAfter&quot;</span>:true,   <span class="st">&quot;target&quot;</span>:<span class="st">&quot;docx&quot;</span>,  <span class="st">&quot;writeBeside&quot;</span>:true},
+    <span class="st">&quot;context&quot;</span>:[{<span class="st">&quot;key&quot;</span>: <span class="st">&quot;selector&quot;</span>, <span class="st">&quot;operator&quot;</span>: <span class="st">&quot;equal&quot;</span>, <span class="st">&quot;operand&quot;</span>: <span class="st">&quot;text.html.markdown&quot;</span> }]},
+
+  { <span class="st">&quot;keys&quot;</span>: [<span class="st">&quot;ctrl+alt+shift+r&quot;</span>],   
+    <span class="st">&quot;command&quot;</span>:<span class="st">&quot;pandoc_render&quot;</span>, 
+    <span class="st">&quot;args&quot;</span>:{<span class="st">&quot;openAfter&quot;</span>:false,  <span class="st">&quot;target&quot;</span>:<span class="st">&quot;html&quot;</span>,  <span class="st">&quot;writeBeside&quot;</span>:true},
+    <span class="st">&quot;context&quot;</span>:[{<span class="st">&quot;key&quot;</span>: <span class="st">&quot;selector&quot;</span>, <span class="st">&quot;operator&quot;</span>: <span class="st">&quot;equal&quot;</span>, <span class="st">&quot;operand&quot;</span>: <span class="st">&quot;text.html.markdown&quot;</span> }]}
 ]</code></pre></td></tr></table>
 </body>
 </html>

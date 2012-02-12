@@ -1,0 +1,29 @@
+[
+    {
+        "id": "tools",
+        "children":
+        [
+            {
+                "caption": "Pandoc",
+                "children":
+                [
+                    {
+                        "caption": "Render Markdown to temporary HTML and View",
+                        "command": "pandoc_render",
+                        "args":{"openAfter":true,   "target":"html",    "writeBeside":false}
+                    },
+                    {
+                        "caption": "Render Markdown to HTML",
+                        "command": "pandoc_render",
+                        "args":{"openAfter":false,   "target":"html",    "writeBeside":true}
+                    },
+                    {
+                        "caption": "Render Markdown DocX",
+                        "command": "pandoc_render",
+                        "args":{"openAfter":false,   "target":"docx",    "writeBeside":true}
+                    }
+                ]
+            }
+        ]
+    }
+]
