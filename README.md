@@ -27,12 +27,25 @@ You'll need to download and install [Pandoc] and have it in your PATH.
 
 TBD
 
+Note:  If you are using a pre-built binary of Pandoc you will be unable to customize the reference.docx file in versions <= 1.9.1
+
 ## Sample Keybindings ##
 ~~~~~ {#mycode .python .numberLines startFrom="100"}
 [
-	{"keys": ["ctrl+alt+r"], 		"command":"pandoc_render", "args":{"openAfter":true, 	"target":"html", 	"writeBeside":false}},
-	{"keys": ["ctrl+alt+shift+d"], 	"command":"pandoc_render", "args":{"openAfter":false, 	"target":"docx",	"writeBeside":true}},
-	{"keys": ["ctrl+alt+shift+r"], 	"command":"pandoc_render", "args":{"openAfter":false, 	"target":"html", 	"writeBeside":true}}
+  { "keys": ["ctrl+alt+r"],     
+    "command":"pandoc_render", 
+    "args":{"openAfter":true,   "target":"html",  "writeBeside":false},
+    "context":[{"key": "selector", "operator": "equal", "operand": "text.html.markdown" }]},
+
+  { "keys": ["ctrl+alt+shift+d"],   
+    "command":"pandoc_render", 
+    "args":{"openAfter":true,   "target":"docx",  "writeBeside":true},
+    "context":[{"key": "selector", "operator": "equal", "operand": "text.html.markdown" }]},
+
+  { "keys": ["ctrl+alt+shift+r"],   
+    "command":"pandoc_render", 
+    "args":{"openAfter":false,  "target":"html",  "writeBeside":true},
+    "context":[{"key": "selector", "operator": "equal", "operand": "text.html.markdown" }]}
 ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

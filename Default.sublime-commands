@@ -2,16 +2,16 @@
     {
         "caption": "Pandoc: Render Markdown to temp HTML and View",
         "command": "pandoc_render",
-        "args":{"openInBrowser":true}
+        "args":{"openAfter":true,   "target":"html",    "writeBeside":false}
     },
     {
         "caption": "Pandoc: Render Markdown to HTML",
         "command": "pandoc_render",
-        "args":{"openInBrowser":false, "writeBeside":true}
+        "args":{"openAfter":false,   "target":"html",    "writeBeside":true}
     },
     {
         "caption": "Pandoc: Render Markdown DocX",
-        "command": "pandoc_render_docx",
-        "args":{}
+        "command": "pandoc_render",
+        "args":{"openAfter":true,   "target":"docx",    "writeBeside":true}
     }
 ]
