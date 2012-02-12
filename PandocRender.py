@@ -15,8 +15,7 @@ class PandocRenderCommand(sublime_plugin.TextCommand):
         return path
 
     def is_enabled(self):
-        # TODO: Only if text.html.markdown
-        return True
+        return self.view.score_selector(0, "text.html.markdown") > 0
 
     def is_visible(self):
         return True 
