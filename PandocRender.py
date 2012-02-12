@@ -20,7 +20,7 @@ class PandocRenderCommand(sublime_plugin.TextCommand):
     def is_visible(self):
         return True 
 
-    def run(self, edit, target="html", openAfter=True, writeBeside=False):
+    def run(self, edit, target="html", openAfter=True, writeBeside=False, additionalArguments=[]):
         if not target in ["html","docx"]: raise Exception("target must be either 'html' or 'docx'")
 
         # grab contents of buffer
@@ -57,6 +57,7 @@ class PandocRenderCommand(sublime_plugin.TextCommand):
         cmd.append(tmp_md.name)
         cmd.append("-o")
         cmd.append(output_filename)
+        cmd += additionalArguments
 
         # Hints that can be embedded in the documents to turn on features in the output.
         if '[[TOC]]' in contents:
@@ -64,7 +65,13 @@ class PandocRenderCommand(sublime_plugin.TextCommand):
         if '[[NUM]]' in contents:
             cmd.append("-N")
 
-        print subprocess.call(cmd)
+
+        try:
+            subprocess.call(cmd)
+        except Exception as e:
+            sublime.error_message("Unable to execute Pandoc.  \n\nDetails: {0}".format(e))
+
+
         print "Wrote:", output_filename
 
         if openAfter:
