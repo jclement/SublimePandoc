@@ -9,7 +9,7 @@ class PandocRenderCommand(sublime_plugin.TextCommand):
     """ render file contents to HTML and, optionally, open in your web browser"""
 
     def getTemplatePath(self, filename):
-        path = os.path.join(sublime.packages_path(), 'SublimePandoc', filename)
+        path = os.path.join(sublime.packages_path(), 'Pandoc (Markdown)', filename)
         if not os.path.isfile(path):
             raise Exception(filename + " file not found!")
         return path
