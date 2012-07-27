@@ -2,6 +2,7 @@ import sublime, sublime_plugin
 import webbrowser
 import tempfile
 import os
+import re
 import sys
 import subprocess
 
@@ -63,11 +64,11 @@ class PandocRenderCommand(sublime_plugin.TextCommand):
         cmd.append(output_filename)
         cmd += additionalArguments
 
-        # Hints that can be embedded in the documents to turn on features in the output.
-        if '[[TOC]]' in contents:
-            cmd.append("--toc")
-        if '[[NUM]]' in contents:
-            cmd.append("-N")
+        # Extra arguments to pass into pandoc, e.g.:
+        #     <!-- [[ PANDOC --smart --no-wrap ]] -->
+        match = re.match(r'.*<!--\s+\[\[ PANDOC (?P<args>.*) \]\]\s+-->', contents)
+        if match:
+            cmd += match.groupdict()['args'].split(' ')
 
 
         try:
