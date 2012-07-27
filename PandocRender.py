@@ -5,11 +5,15 @@ import os
 import sys
 import subprocess
 
+
+plugin_path = os.path.dirname(os.path.abspath(__file__))
+
+
 class PandocRenderCommand(sublime_plugin.TextCommand):
     """ render file contents to HTML and, optionally, open in your web browser"""
 
     def getTemplatePath(self, filename):
-        path = os.path.join(sublime.packages_path(), 'Pandoc (Markdown)', filename)
+        path = os.path.join(plugin_path, filename)
         if not os.path.isfile(path):
             raise Exception(filename + " file not found!")
         return path
