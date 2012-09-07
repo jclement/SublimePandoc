@@ -64,4 +64,4 @@ The default keymapping on Windows...
 ]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-[Pandoc]: http://johnmacfarlane.net/pandoc/	
+[Pandoc]: http://johnmacfarlane.net/pandoc/
