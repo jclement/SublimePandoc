@@ -50,7 +50,7 @@ class PandocRenderCommand(sublime_plugin.TextCommand):
 
         # write buffer to temporary file
         tmp_md = tempfile.NamedTemporaryFile(delete=False, suffix=".md")
-        tmp_md.write(contents)
+        tmp_md.write(contents.encode(encoding))
         tmp_md.close()
 
         # output file...
