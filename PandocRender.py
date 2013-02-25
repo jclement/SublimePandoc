@@ -36,8 +36,14 @@ class PandocRenderCommand(sublime_plugin.TextCommand):
             pandoc_bin = settings.get('pandoc_bin') or 'pandoc' # set to default in $PATH
             pandoc_bin = os.path.expanduser(pandoc_bin)
         if not os.path.exists(pandoc_bin):
-            sublime.error_message("Unable to load pandoc engine: {0}\n\nYou can specify Pandoc in settings.".format(pandoc_bin))
-            return
+            found = False
+            if pandoc_bin == 'pandoc':
+                bools = [os.path.exists(os.path.join(p, pandoc_bin)) for p in os.environ['PATH'].split(':')]
+                if bools.count(True):
+                    found = True
+            if not found:
+                sublime.error_message("Unable to load pandoc engine: {0}\n\nYou can specify Pandoc in settings.".format(pandoc_bin))
+                return
 
         # grab contents of buffer
         region = sublime.Region(0, self.view.size())
